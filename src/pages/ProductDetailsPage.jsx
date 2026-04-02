@@ -234,7 +234,7 @@ export default function ProductDetailsPage() {
               <img
                 src={activeImages[imageIndex]}
                 alt={product.name}
-                className="h-full w-full object-cover"
+                className={"h-full w-full " + (imageIndex === activeImages.length - 1 ? "object-contain" : "object-cover")}
               />
             </div>
           </button>
@@ -492,23 +492,23 @@ export default function ProductDetailsPage() {
 
       {isSizeChartOpen ? (
         <div
-          className="fixed inset-0 z-[125] grid place-items-center bg-black/80 p-4"
+          className="fixed inset-0 z-[125] grid place-items-center overflow-y-auto bg-black/80 p-3 sm:p-5"
           onClick={() => setIsSizeChartOpen(false)}
           role="dialog"
           aria-modal="true"
           aria-label="Size chart and measurement guide"
         >
           <div
-            className="w-full max-w-5xl overflow-hidden rounded-2xl bg-white shadow-2xl"
+            className="w-full max-w-5xl max-h-[92vh] overflow-hidden rounded-2xl bg-white shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="border-b border-brand-sand/60 px-6 py-5">
+            <div className="border-b border-brand-sand/60 px-4 py-4 sm:px-6 sm:py-5">
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand-charcoal/60">
                     Size Charts
                   </p>
-                  <h2 className="mt-2 font-heading text-3xl text-brand-wine">{product.name}</h2>
+                  <h2 className="mt-2 font-heading text-2xl text-brand-wine sm:text-3xl">{product.name}</h2>
                 </div>
                 <button
                   type="button"
@@ -527,19 +527,19 @@ export default function ProductDetailsPage() {
                 <span>CM</span>
               </div>
             </div>
-            <div className="grid gap-6 px-6 py-6 lg:grid-cols-[1.15fr_0.85fr]">
-              <div className="max-h-[65vh] space-y-5 overflow-auto pr-1">
+            <div className="grid max-h-[calc(92vh-170px)] gap-4 overflow-y-auto px-4 py-4 sm:gap-6 sm:px-6 sm:py-6 lg:grid-cols-[1.15fr_0.85fr]">
+              <div className="space-y-4 sm:space-y-5">
                 {sizeCharts.map((chart) => (
                   <div key={chart.src} className="space-y-2">
                     <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand-charcoal/60">
                       {chart.label}
                     </p>
                     <figure className="flex h-full flex-col rounded-2xl border border-brand-sand/60 bg-[#f8f3ec]">
-                      <div className="grid min-h-[18rem] place-items-center px-4 py-4 sm:min-h-[22rem]">
+                      <div className="grid min-h-[14rem] place-items-center px-3 py-3 sm:min-h-[18rem] sm:px-4 sm:py-4">
                         <img
                           src={chart.src}
                           alt={chart.label}
-                          className="max-h-[22rem] w-auto max-w-full object-contain sm:max-h-[26rem]"
+                          className="max-h-[48vh] w-auto max-w-full object-contain sm:max-h-[24rem] lg:max-h-[26rem]"
                         />
                       </div>
                     </figure>
@@ -551,11 +551,11 @@ export default function ProductDetailsPage() {
                   Measurement Guide
                 </p>
                 <figure className="flex h-full flex-col rounded-2xl border border-brand-sand/60 bg-white">
-                  <div className="grid min-h-[18rem] place-items-center px-4 py-4 sm:min-h-[22rem]">
+                  <div className="grid min-h-[14rem] place-items-center px-3 py-3 sm:min-h-[18rem] sm:px-4 sm:py-4">
                     <img
                       src="/mesure.jpg"
                       alt="Measurement guide"
-                      className="max-h-[22rem] w-auto max-w-full object-contain sm:max-h-[26rem]"
+                      className="max-h-[48vh] w-auto max-w-full object-contain sm:max-h-[24rem] lg:max-h-[26rem]"
                     />
                   </div>
                 </figure>

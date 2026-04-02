@@ -88,7 +88,7 @@ export default function Navbar() {
 
   function toggleTheme() {
     setIsDark((prev) => {
-      const next = !prev;
+      const next = prev === false;
       localStorage.setItem("saurene_theme", next ? "dark" : "light");
       document.documentElement.classList.toggle("dark-theme", next);
       return next;
@@ -108,7 +108,7 @@ export default function Navbar() {
           <BrandLogo />
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
-          {!isAdmin
+          {isAdmin === false
             ? navLinks.map((item, index) => (
                 <NavLink
                   key={item.to}
@@ -136,7 +136,7 @@ export default function Navbar() {
           >
             <ThemeIcon isDark={isDark} />
           </button>
-          {!isAdmin ? (
+          {isAdmin === false ? (
             <>
               <IconButton to="/wishlist" count={wishlistCount}>
                 <HeartIcon />
@@ -148,7 +148,7 @@ export default function Navbar() {
           ) : null}
           {user ? (
             <>
-              {!isAdmin ? (
+              {isAdmin === false ? (
                 <IconButton to="/account">
                   <AccountIcon />
                 </IconButton>
@@ -174,28 +174,48 @@ export default function Navbar() {
           )}
         </div>
 
-        <button
-          onClick={() => setMenuOpen((prev) => !prev)}
-          className="grid h-9 w-9 place-items-center rounded-md border border-brand-wine text-brand-wine md:hidden"
-          aria-expanded={menuOpen}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? (
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="m6 6 12 12M18 6 6 18" />
-            </svg>
-          ) : (
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M4 7h16M4 12h16M4 17h16" />
-            </svg>
-          )}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={toggleTheme}
+            className="btn-like rounded-md border border-brand-sand bg-white p-2 text-brand-wine"
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            title={isDark ? "Light mode" : "Dark mode"}
+          >
+            <ThemeIcon isDark={isDark} />
+          </button>
+          {isAdmin === false ? (
+            <>
+              <IconButton to="/wishlist" count={wishlistCount}>
+                <HeartIcon />
+              </IconButton>
+              <IconButton to="/cart" count={cartCount}>
+                <CartIcon />
+              </IconButton>
+            </>
+          ) : null}
+          <button
+            onClick={() => setMenuOpen((prev) => prev === false)}
+            className="grid h-9 w-9 place-items-center rounded-md border border-brand-wine text-brand-wine"
+            aria-expanded={menuOpen}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? (
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="m6 6 12 12M18 6 6 18" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
 
-      {menuOpen && (
+      {menuOpen ? (
         <div className="border-t border-brand-sand/60 bg-brand-ivory px-4 py-4 md:hidden">
           <nav className="grid gap-2">
-            {!isAdmin
+            {isAdmin === false
               ? navLinks.map((item, index) => (
                   <NavLink
                     key={item.to}
@@ -226,31 +246,9 @@ export default function Navbar() {
               )}
           </nav>
           <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
-            <button
-              onClick={toggleTheme}
-              className="btn-like col-span-2 inline-flex items-center justify-center gap-2 rounded-md border border-brand-sand bg-white px-3 py-2 font-medium text-brand-wine"
-              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-            >
-              <ThemeIcon isDark={isDark} />
-              <span>{isDark ? "Light Mode" : "Dark Mode"}</span>
-            </button>
-            {!isAdmin ? (
-              <>
-                <div className="flex items-center justify-center">
-                  <IconButton to="/wishlist" count={wishlistCount} onClick={() => setMenuOpen(false)}>
-                    <HeartIcon />
-                  </IconButton>
-                </div>
-                <div className="flex items-center justify-center">
-                  <IconButton to="/cart" count={cartCount} onClick={() => setMenuOpen(false)}>
-                    <CartIcon />
-                  </IconButton>
-                </div>
-              </>
-            ) : null}
             {user ? (
               <>
-                {!isAdmin ? (
+                {isAdmin === false ? (
                   <div className="flex items-center justify-center">
                     <IconButton to="/account" onClick={() => setMenuOpen(false)}>
                       <AccountIcon />
@@ -283,7 +281,7 @@ export default function Navbar() {
             )}
           </div>
         </div>
-      )}
+      ) : null}
     </header>
   );
 }

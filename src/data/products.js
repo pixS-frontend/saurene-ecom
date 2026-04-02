@@ -147,7 +147,7 @@ const catalogProductsRaw = [
     sizes: STANDARD_SIZES,
     images: ["/Dresses/Elite 1.jpg", "/Dresses/Elite 2.jpg", "/Dresses/Elite 3.jpeg", "/Dresses/Elite 4.jpeg", "/Dresses/Elite 5.jpg", "/Dresses/Elite 6.jpg"],
     sizeCharts: [{"label": "Elite Dress Size Chart", "src": "/Dresses/Elite dress.jpg"}],
-    extraOptions: {"color": {"label": "Color", "values": [{"id": "black", "label": "Black", "images": ["/Dresses/Elite Dress black color .jpg"]}]}, "sleeve": {"label": "Sleeve", "required": true, "values": [{"id": "sleeve", "label": "Sleeve"}, {"id": "no-sleeve", "label": "No Sleeve"}]}},
+    extraOptions: {"color": {"label": "Color", "values": [{"id": "black", "label": "Black", "images": ["/Dresses/Elite Dress black color .jpg"]}]}, "sleeve": {"label": "Sleeve", "required": true, "values": [{"id": "sleeve", "label": "Cap Sleeve"}, {"id": "no-sleeve", "label": "No Sleeve"}]}},
   },
   {
     id: "drs-3",
@@ -412,7 +412,6 @@ const catalogProductsRaw = [
     sizes: STANDARD_SIZES,
     images: ["/Tops/Aria Top with scarf 1.jpg", "/Tops/Aria Top with scarf 2.jpg", "/Tops/Aria top with scarf 3.jpg", "/Tops/Aria top with scarf 4.jpg", "/Tops/Aria top with scarf 5.jpg"],
     sizeCharts: [{"label": "Aria Top with Scarf Size Chart", "src": "/Tops/aria top.jpg"}],
-    extraOptions: {"sleeve": {"label": "Sleeve", "required": true, "values": [{"id": "sleeve", "label": "Sleeve"}, {"id": "no-sleeve", "label": "No Sleeve"}]}},
   },
   {
     id: "top-2",
@@ -554,6 +553,7 @@ const catalogProductsRaw = [
     sizes: STANDARD_SIZES,
     images: ["/Tops/Vela Top 1.jpg", "/Tops/Vela Top 2.jpg", "/Tops/Vela Top 3.jpg"],
     sizeCharts: [{"label": "Vela Top Size Chart", "src": "/Tops/vela top.jpg"}],
+    extraOptions: {"color": {"label": "Color", "values": [{"id": "sea-green", "label": "Sea Green", "images": ["/Tops/Vela Top 2.jpg"]}]}},
   },
   {
     id: "set-1",
@@ -574,7 +574,6 @@ const catalogProductsRaw = [
     sizes: STANDARD_SIZES,
     images: ["/Curated Sets/Aria 1.jpg", "/Curated Sets/Aria 2.jpg", "/Curated Sets/Aria 3.jpg", "/Curated Sets/Aria 4.jpeg", "/Curated Sets/Aria 5.jpg", "/Curated Sets/Aria 6.jpg", "/Curated Sets/Aria 7.jpg"],
     sizeCharts: [{"label": "Top Size Chart", "src": "/Curated Sets/aria top.jpg"}, {"label": "Bottom Size Chart", "src": "/Curated Sets/aria skirt.jpg"}],
-    extraOptions: {"sleeve": {"label": "Sleeve", "required": true, "values": [{"id": "sleeve", "label": "Sleeve"}, {"id": "no-sleeve", "label": "No Sleeve"}]}},
   },
   {
     id: "set-2",

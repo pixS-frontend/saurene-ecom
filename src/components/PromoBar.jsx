@@ -1,7 +1,7 @@
 export default function PromoBar() {
   const promoItems = [
     "10% OFF for new users with code SAURENE10",
-    "Free shipping on prepaid orders",
+    "Free shipping on all orders",
     "Made-to-order pieces crafted with care"
   ];
 
@@ -11,7 +11,7 @@ export default function PromoBar() {
       <div className="promo-fade-right" />
       <div className="promo-marquee">
         {[...promoItems, ...promoItems].map((item, index) => (
-          <span key={`${item}-${index}`} className="promo-item">
+          <span key={item + "-" + index} className="promo-item">
             {item}
           </span>
         ))}

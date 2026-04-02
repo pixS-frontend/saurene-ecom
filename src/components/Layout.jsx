@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import PromoBar from "./PromoBar";
 import Navbar from "./Navbar";
@@ -14,18 +15,22 @@ export default function Layout({ children }) {
   const isAdminRoute = location.pathname.startsWith("/admin");
   const isLoginRoute = location.pathname.startsWith("/login");
 
-  if (isAdmin && !isAdminRoute && !isLoginRoute) {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [location.pathname]);
+
+  if (isAdmin && isAdminRoute === false && isLoginRoute === false) {
     return <Navigate to="/admin/orders" replace />;
   }
 
   return (
     <div className="min-h-screen text-brand-charcoal">
-      {!isAdmin && isHomePage ? <FirstAffairPopup /> : null}
+      {isAdmin === false && isHomePage ? <FirstAffairPopup /> : null}
       <Navbar />
-      {!isAdmin ? <PromoBar /> : null}
+      {isAdmin === false ? <PromoBar /> : null}
       <main>{children}</main>
-      {!isAdmin && !isProductDetailsPage ? <TrustStrip /> : null}
-      {!isAdmin ? <Footer /> : null}
+      {isAdmin === false && isProductDetailsPage === false ? <TrustStrip /> : null}
+      {isAdmin === false ? <Footer /> : null}
     </div>
   );
 }
