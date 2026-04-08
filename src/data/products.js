@@ -168,7 +168,7 @@ const catalogProductsRaw = [
     sizes: STANDARD_SIZES,
     images: ["/Dresses/KOA 1.jpeg", "/Dresses/KOA 2.jpeg", "/Dresses/Koa 3.jpeg", "/Dresses/Koa 3_.jpeg", "/Dresses/Koa 4.jpg"],
     sizeCharts: [{"label": "Koa Dress Size Chart", "src": "/Dresses/koa dress.jpg"}],
-    extraOptions: {"color": {"label": "Color", "values": [{"id": "butter-yellow", "label": "Butter Yellow", "images": ["/Dresses/Koa Drss butter yellow.jpg"]}, {"id": "burgundy", "label": "Burgundy", "images": ["/Dresses/Koa dress burgundy.jpg"]}]}, "sleeve": {"label": "Sleeve", "required": true, "values": [{"id": "sleeve", "label": "Sleeve"}, {"id": "no-sleeve", "label": "No Sleeve"}]}},
+    extraOptions: {"color": {"label": "Color", "values": [{"id": "butter-yellow", "label": "Butter Yellow", "images": ["/Dresses/Koa Drss butter yellow.jpg"]}, {"id": "burgundy", "label": "Burgundy", "images": ["/Dresses/Koa dress burgundy.jpg"]}]}, "sleeve": {"label": "Sleeve", "required": true, "values": [{"id": "sleeve", "label": "Cap Sleeve"}, {"id": "no-sleeve", "label": "No Sleeve"}]}},
   },
   {
     id: "drs-4",
@@ -197,7 +197,7 @@ const catalogProductsRaw = [
     name: "Lune Midi Dress",
     category: "Dresses",
     collection: "Dresses",
-    price: 7080,
+    price: 6980,
     discountPercent: 0,
     description: "A study in light and shadow, the Lune Dress is a tribute to mid-century French elegance with modern functionality. This midi-length piece features a structured noir neckline that meets a flowing ivory bodice, creating a silhouette that is both grounded and ethereal. It's a design that celebrates the finer details-the kind that reveal themselves upon a second glance. Designed for the woman who finds beauty in contrast and timelessness in every stitch.",
     overview: "A study in light and shadow, the Lune Dress is a tribute to mid-century French elegance with modern functionality. This midi-length piece features a structured noir neckline that meets a flowing ivory bodice, creating a silhouette that is both grounded and ethereal. It's a design that celebrates the finer details-the kind that reveal themselves upon a second glance. Designed for the woman who finds beauty in contrast and timelessness in every stitch.",
