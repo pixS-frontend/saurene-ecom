@@ -10,6 +10,7 @@ const sortOptions = [
 ];
 
 const relevanceOrder = [
+  "agatha-dress",
   "elite-dress",
   "koa-dress",
   "lumi-dress",

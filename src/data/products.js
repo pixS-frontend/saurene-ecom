@@ -37,7 +37,9 @@ const birthdayProducts = [
       "For any customisations please WhatsApp us at +91 9439721131 or mail us at info@saurene.com.",
     sizes: STANDARD_SIZES,
     images: [
-      "/bdy_edit/Agatha_1.jpeg",
+      "/bdy_edit/Agatha_nw_1.jpg",
+      "/bdy_edit/Agatha_nw_2.jpg",
+      "/bdy_edit/Agatha_nw_3.png",
       "/bdy_edit/Agatha_2.jpeg",
       "/bdy_edit/Agatha_3.jpeg",
       "/bdy_edit/Agatha_4.jpeg",
@@ -145,7 +147,7 @@ const catalogProductsRaw = [
     disclaimer: "We try extremely hard to ensure our all photos are as life-like as possible, but please note that the actual colour may slightly vary on different screens.",
     customisation: "For any customisations please WhatsApp us at +91 9439721131 or mail us at info@saurene.com",
     sizes: STANDARD_SIZES,
-    images: ["/Dresses/Elite 1.jpg", "/Dresses/Elite 2.jpg", "/Dresses/Elite 3.jpeg", "/Dresses/Elite 4.jpeg", "/Dresses/Elite 5.jpg", "/Dresses/Elite 6.jpg"],
+    images: ["/Dresses/Elite 0.jpeg", "/Dresses/Elite 1.jpg", "/Dresses/Elite 2.jpg", "/Dresses/Elite 3.jpeg", "/Dresses/Elite 4.jpeg", "/Dresses/Elite 5.jpg", "/Dresses/Elite 6.jpg"],
     sizeCharts: [{"label": "Elite Dress Size Chart", "src": "/Dresses/Elite dress.jpg"}],
     extraOptions: {"color": {"label": "Color", "values": [{"id": "black", "label": "Black", "images": ["/Dresses/Elite Dress black color .jpg"]}]}, "sleeve": {"label": "Sleeve", "required": true, "values": [{"id": "sleeve", "label": "Cap Sleeve"}, {"id": "no-sleeve", "label": "No Sleeve"}]}},
   },
@@ -511,7 +513,7 @@ const catalogProductsRaw = [
     disclaimer: "We try extremely hard to ensure our all photos are as life-like as possible, but please note that the actual colour may slightly vary on different screens.",
     customisation: "For any customisations, please WhatsApp us at +91 9439721131 or mail us at info@saurene.com",
     sizes: STANDARD_SIZES,
-    images: ["/Tops/Lyra Top 1.jpg", "/Tops/Lyra Top 2.jpg", "/Tops/Lyra top 3.jpg"],
+    images: ["/Curated Sets/Layra_nw_1.png", "/Curated Sets/Layra_nw_2.png", "/Tops/Lyra Top 1.jpg", "/Tops/Lyra Top 2.jpg", "/Tops/Lyra top 3.jpg"],
     sizeCharts: [{"label": "Lyra Top Size Chart", "src": "/Tops/Lyra top.jpg"}],
   },
   {
@@ -653,7 +655,7 @@ const catalogProductsRaw = [
     disclaimer: "We try extremely hard to ensure our all photos are as life-like as possible, but please note that the actual colour may slightly vary on different screens.",
     customisation: "For any customisations please WhatsApp us at +91 9439721131 or mail us at info@saurene.com",
     sizes: STANDARD_SIZES,
-    images: ["/Curated Sets/Lyra 1.jpg", "/Curated Sets/Lyra 2.jpg", "/Curated Sets/Lyra 3.jpg", "/Curated Sets/Lyra 4.jpg"],
+    images: ["/Curated Sets/Layra_nw_1.png", "/Curated Sets/Layra_nw_2.png", "/Curated Sets/Lyra 1.jpg", "/Curated Sets/Lyra 2.jpg", "/Curated Sets/Lyra 3.jpg", "/Curated Sets/Lyra 4.jpg"],
     sizeCharts: [{"label": "Top Size Chart", "src": "/Curated Sets/Lyra top.jpg"}, {"label": "Bottom Size Chart", "src": "/Curated Sets/lyra pant.jpg"}],
   },
   {

@@ -61,6 +61,189 @@ a {
   display: none;
 }
 
+.home-hero {
+  position: relative;
+  min-height: clamp(520px, calc(100svh - 8rem), 760px);
+  overflow: hidden;
+  background: #2d2525;
+  isolation: isolate;
+}
+
+.home-hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transform: scale(1.025);
+  transition:
+    opacity 900ms ease,
+    transform 4500ms ease;
+  will-change: opacity, transform;
+  z-index: -2;
+}
+
+.home-hero-image-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.home-hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(24, 16, 17, 0.22) 0%, rgba(24, 16, 17, 0.08) 45%, rgba(24, 16, 17, 0.02) 100%),
+    linear-gradient(0deg, rgba(24, 16, 17, 0.88) 0%, rgba(24, 16, 17, 0.52) 23%, rgba(24, 16, 17, 0.02) 58%);
+  z-index: -1;
+}
+
+.home-hero-content {
+  min-height: clamp(520px, calc(100svh - 8rem), 760px);
+  display: flex;
+  align-items: flex-end;
+  padding-top: clamp(3rem, 7vw, 5rem);
+  padding-bottom: clamp(1rem, 2.6vw, 2rem);
+}
+
+.home-hero-copy {
+  display: grid;
+  width: 100%;
+  max-width: none;
+  grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.72fr);
+  grid-template-areas:
+    "title details"
+    "actions kicker";
+  column-gap: clamp(2rem, 5vw, 5.5rem);
+  row-gap: clamp(0.9rem, 1.8vw, 1.35rem);
+  align-items: end;
+  border-top: 1px solid rgba(244, 239, 232, 0.28);
+  padding-top: clamp(1rem, 2.4vw, 1.55rem);
+  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.32);
+}
+
+.home-hero-title {
+  grid-area: title;
+  min-width: 0;
+  white-space: nowrap;
+  font-size: clamp(2.2rem, 3.7vw, 3.85rem);
+  line-height: 0.98;
+}
+
+.home-hero-text {
+  grid-area: details;
+  max-width: 34rem;
+  line-height: 1.55;
+}
+
+.home-hero-kicker {
+  grid-area: kicker;
+  justify-self: end;
+  line-height: 1.55;
+  text-align: right;
+}
+
+.home-hero-actions {
+  grid-area: actions;
+  justify-self: start;
+  align-items: center;
+}
+
+.home-hero .rush-tag {
+  border-color: rgba(244, 239, 232, 0.42);
+  background: rgba(103, 52, 60, 0.76);
+  color: #fffaf4;
+  text-shadow: none;
+}
+
+@media (min-width: 768px) and (max-width: 1180px) {
+  .home-hero-copy {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "title"
+      "details"
+      "kicker"
+      "actions";
+    row-gap: 0;
+  }
+
+  .home-hero-title {
+    white-space: normal;
+  }
+
+  .home-hero-text {
+    margin-top: 0.9rem;
+    max-width: 42rem;
+  }
+
+  .home-hero-kicker {
+    margin-top: 1rem;
+    justify-self: start;
+    text-align: left;
+  }
+
+  .home-hero-actions {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-hero {
+    min-height: 620px;
+  }
+
+  .home-hero-image {
+    object-position: 76% center;
+  }
+
+  .home-hero-shade {
+    background:
+      linear-gradient(90deg, rgba(24, 16, 17, 0.38) 0%, rgba(24, 16, 17, 0.12) 70%, rgba(24, 16, 17, 0.1) 100%),
+      linear-gradient(0deg, rgba(24, 16, 17, 0.92) 0%, rgba(24, 16, 17, 0.58) 48%, rgba(24, 16, 17, 0.1) 100%);
+  }
+
+  .home-hero-content {
+    min-height: 620px;
+    align-items: flex-end;
+    padding-bottom: 1.5rem;
+  }
+
+  .home-hero-title,
+  .home-hero-text {
+    white-space: normal;
+  }
+
+  .home-hero-copy {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "details"
+      "kicker"
+      "actions";
+    row-gap: 0;
+    max-width: 100%;
+    padding-top: 1rem;
+  }
+
+  .home-hero-text {
+    margin-top: 0.8rem;
+    max-width: 27rem;
+  }
+
+  .home-hero-kicker {
+    margin-top: 1rem;
+    justify-self: start;
+    text-align: left;
+  }
+
+  .home-hero-actions {
+    margin-top: 1rem;
+    justify-self: start;
+  }
+}
+
 .feature-tagline-wrap {
   position: relative;
   left: 50%;

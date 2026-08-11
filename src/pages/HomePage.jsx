@@ -5,12 +5,8 @@ import ProductCard from "../components/ProductCard";
 import { getInstagramPosts } from "../services/instagram";
 
 const homeImages = [
-  "/home_img_1.jpg",
-  "/home_img_2.jpg",
-  "/home_img_3.jpg",
-  "/home_img_4.jpg",
-  "/home_img_5.jpeg",
-  "/home_img_6.jpeg"
+  "/homepage_image_1.png",
+  "/homepage_image.png"
 ];
 
 export default function HomePage() {
@@ -20,7 +16,6 @@ export default function HomePage() {
   );
   const [instaPosts, setInstaPosts] = useState([]);
   const [heroIndex, setHeroIndex] = useState(0);
-  const [isHeroLoaded, setIsHeroLoaded] = useState(false);
   const [isInstaLoading, setIsInstaLoading] = useState(true);
 
   useEffect(() => {
@@ -32,60 +27,59 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    setIsHeroLoaded(false);
     const timer = setInterval(() => {
       setHeroIndex((current) => (current + 1) % homeImages.length);
-    }, 1000);
+    }, 4500);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <div>
-      <section className="container-pad grid items-center gap-8 pb-12 pt-8 sm:pb-16 sm:pt-12 md:grid-cols-2">
-        <div className="order-2 animate-fadeUp md:order-1">
-          <h1 className="mt-4 font-heading text-4xl leading-tight text-brand-wine sm:text-5xl lg:text-6xl">
-            Elegance, made with intention.
-          </h1>
-          <p className="mt-5 max-w-xl text-sm text-brand-charcoal/80 sm:text-base">
-            A woman’s fashion label built with care, patience, and purpose. Inspired by
-            vintage femininity and timeless silhouettes.
-          </p>
-          <p className="mt-5 max-w-xl text-sm text-brand-charcoal/80 sm:text-base">
-            Unfold slowly - fashion was never meant to rush
-            <br />
-            <span className="rush-tag mt-1 inline-block">NO RUSH SS'26</span>
-          </p>
-          <div className="mt-7 flex flex-wrap gap-2 sm:gap-3">
-            <Link
-              to="/collections"
-              className="btn-like rounded-md bg-brand-wine px-5 py-2.5 text-xs font-semibold text-white sm:px-6 sm:py-3 sm:text-sm"
-            >
-              Explore the Collection
-            </Link>
-            <Link
-              to="/collections?category=Birthday%20edits"
-              className="btn-like rounded-md border border-brand-wine px-5 py-2.5 text-xs font-semibold text-brand-wine sm:px-6 sm:py-3 sm:text-sm"
-            >
-              Birthday Edit
-            </Link>
-          </div>
-        </div>
-        <div className="order-1 animate-floatIn overflow-hidden rounded-3xl border border-brand-sand/50 bg-brand-ivory/45 md:order-2">
-          <div className="grid h-[360px] place-items-center sm:h-[440px] lg:h-[520px]">
-            {!isHeroLoaded ? <div className="skeleton-shimmer h-full w-full" /> : null}
-            <img
-              src={homeImages[heroIndex]}
-              alt="Saurene collection highlight"
-              fetchPriority="high"
-              decoding="async"
-              onLoad={() => setIsHeroLoaded(true)}
-              onError={(event) => {
-                event.currentTarget.src = "/home_img_1.jpg";
-              }}
-              className={`h-full w-full object-contain transition-opacity duration-500 ${
-                isHeroLoaded ? "opacity-100" : "opacity-0"
-              }`}
-            />
+      <section className="home-hero">
+        {homeImages.map((image, index) => (
+          <img
+            key={image}
+            src={image}
+            alt=""
+            aria-hidden="true"
+            className={`home-hero-image ${index === heroIndex ? "home-hero-image-active" : ""}`}
+          />
+        ))}
+        <div className="home-hero-shade" aria-hidden="true" />
+        <div className="container-pad home-hero-content">
+          <div className="home-hero-copy animate-fadeUp">
+            <h1 className="home-hero-title font-heading text-4xl leading-tight text-brand-ivory sm:text-5xl lg:text-6xl">
+              Elegance, made with intention.
+            </h1>
+            <p className="home-hero-text max-w-xl text-sm text-brand-ivory/85 sm:text-base">
+              A woman’s fashion label built with care, patience, and purpose. Inspired by
+              vintage femininity and timeless silhouettes.
+            </p>
+            <p className="home-hero-kicker max-w-xl text-sm text-brand-ivory/85 sm:text-base">
+              Unfold slowly - fashion was never meant to rush
+              <br />
+              <span className="rush-tag mt-1 inline-block">NO RUSH SS'26</span>
+            </p>
+            <div className="home-hero-actions flex flex-wrap gap-2 sm:gap-3">
+              <Link
+                to="/product/agatha-dress"
+                className="btn-like rounded-md bg-brand-wine px-5 py-2.5 text-xs font-semibold text-white sm:px-6 sm:py-3 sm:text-sm"
+              >
+                Shop the Agatha Dress
+              </Link>
+              <Link
+                to="/collections"
+                className="btn-like rounded-md border border-brand-ivory/75 px-5 py-2.5 text-xs font-semibold text-brand-ivory sm:px-6 sm:py-3 sm:text-sm"
+              >
+                Explore the Collection
+              </Link>
+              <Link
+                to="/collections?category=Birthday%20edits"
+                className="btn-like rounded-md border border-brand-ivory/75 px-5 py-2.5 text-xs font-semibold text-brand-ivory sm:px-6 sm:py-3 sm:text-sm"
+              >
+                Birthday Edit
+              </Link>
+            </div>
           </div>
         </div>
       </section>
