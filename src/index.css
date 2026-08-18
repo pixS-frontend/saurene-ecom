@@ -158,6 +158,10 @@ a {
 }
 
 @media (min-width: 768px) and (max-width: 1180px) {
+  .home-hero-image {
+    object-position: center;
+  }
+
   .home-hero-copy {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
@@ -194,7 +198,7 @@ a {
   }
 
   .home-hero-image {
-    object-position: 76% center;
+    object-position: center;
   }
 
   .home-hero-shade {

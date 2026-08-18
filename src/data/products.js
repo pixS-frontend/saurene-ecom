@@ -41,8 +41,6 @@ const birthdayProducts = [
       "/bdy_edit/Agatha_nw_2.jpg",
       "/bdy_edit/Agatha_nw_3.png",
       "/bdy_edit/Agatha_2.jpeg",
-      "/bdy_edit/Agatha_3.jpeg",
-      "/bdy_edit/Agatha_4.jpeg",
       "/bdy_edit/Agatha_5.jpg"
     ],
     sizeCharts: [

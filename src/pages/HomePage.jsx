@@ -9,6 +9,11 @@ const homeImages = [
   "/homepage_image.png"
 ];
 
+const mobileHomeImages = [
+  "/mob_hm_1.png",
+  "/mob_hm_2.png"
+];
+
 export default function HomePage() {
   const featured = useMemo(
     () => [...products].sort(() => Math.random() - 0.5).slice(0, 3),
@@ -37,13 +42,15 @@ export default function HomePage() {
     <div>
       <section className="home-hero">
         {homeImages.map((image, index) => (
-          <img
-            key={image}
-            src={image}
-            alt=""
-            aria-hidden="true"
-            className={`home-hero-image ${index === heroIndex ? "home-hero-image-active" : ""}`}
-          />
+          <picture key={image}>
+            <source media="(max-width: 900px), (max-width: 1180px) and (orientation: portrait)" srcSet={mobileHomeImages[index]} />
+            <img
+              src={image}
+              alt=""
+              aria-hidden="true"
+              className={`home-hero-image ${index === heroIndex ? "home-hero-image-active" : ""}`}
+            />
+          </picture>
         ))}
         <div className="home-hero-shade" aria-hidden="true" />
         <div className="container-pad home-hero-content">
