@@ -678,6 +678,7 @@ const catalogProductsRaw = [
   },
   {
     id: "new-dress-clara",
+    isNew: true,
     slug: "clara-dress",
     name: "Clara Dress",
     category: "Dresses",
@@ -697,6 +698,7 @@ const catalogProductsRaw = [
   },
   {
     id: "new-dress-daisy",
+    isNew: true,
     slug: "daisy-midi-dress",
     name: "Daisy Midi Dress",
     category: "Dresses",
@@ -716,6 +718,7 @@ const catalogProductsRaw = [
   },
   {
     id: "new-dress-gloria",
+    isNew: true,
     slug: "gloria-midi-dress",
     name: "Gloria Midi Dress",
     category: "Dresses",
@@ -735,6 +738,7 @@ const catalogProductsRaw = [
   },
   {
     id: "new-dress-marque",
+    isNew: true,
     slug: "marque-midi-dress",
     name: "Marque Midi Dress",
     category: "Dresses",
@@ -754,6 +758,7 @@ const catalogProductsRaw = [
   },
   {
     id: "new-dress-serena",
+    isNew: true,
     slug: "serena-dress",
     name: "Serena Dress",
     category: "Dresses",
@@ -773,6 +778,7 @@ const catalogProductsRaw = [
   },
   {
     id: "new-dress-valentine",
+    isNew: true,
     slug: "valentine-midi-dress",
     name: "Valentine Midi Dress",
     category: "Dresses",
@@ -792,6 +798,7 @@ const catalogProductsRaw = [
   },
   {
     id: "new-dress-starlet",
+    isNew: true,
     slug: "starlet-mini-dress",
     name: "Starlet Mini Dress",
     category: "Dresses",
@@ -882,4 +889,4 @@ const catalogProducts = catalogProductsRaw.map((product) =>
 
 export const products = [...birthdayProducts, ...catalogProducts];
 
-export const categories = ["All", "Birthday edits", "Dresses", "Tops", "Bottoms", "Curated Sets"];
+export const categories = ["All", "New", "Birthday edits", "Dresses", "Tops", "Bottoms", "Curated Sets"];

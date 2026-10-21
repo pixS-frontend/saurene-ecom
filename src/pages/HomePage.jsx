@@ -65,9 +65,9 @@ export default function HomePage() {
               vintage femininity and timeless silhouettes.
             </p>
             <p className="home-hero-kicker max-w-xl text-sm text-brand-ivory/85 sm:text-base">
-              Unfold slowly - fashion was never meant to rush
+              The Occasion - YOU
               <br />
-              <span className="rush-tag mt-1 inline-block">NO RUSH SS'26</span>
+              <span className="rush-tag mt-1 inline-block">AW26'</span>
             </p>
             <div className="home-hero-actions flex flex-wrap gap-2 sm:gap-3">
               <Link
@@ -88,6 +88,12 @@ export default function HomePage() {
               >
                 Birthday Edit
               </Link>
+              <Link
+                to="/collections?category=New"
+                className="btn-like rounded-md border border-brand-ivory/75 px-5 py-2.5 text-xs font-semibold text-brand-ivory sm:px-6 sm:py-3 sm:text-sm"
+              >
+                New Collection
+              </Link>
             </div>
           </div>
         </div>
@@ -95,8 +101,8 @@ export default function HomePage() {
 
       <section className="container-pad section-space">
         <div className="feature-tagline-wrap">
-          <p className="feature-tagline-line">Unfold slowly - fashion was never meant to rush</p>
-          <p className="feature-tagline-badge">NO RUSH SS'26</p>
+          <p className="feature-tagline-line">The Occasion - YOU</p>
+          <p className="feature-tagline-badge">AW26'</p>
         </div>
 
         <div className="mb-6 flex items-end justify-between gap-4 sm:mb-8">

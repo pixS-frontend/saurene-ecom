@@ -46,10 +46,11 @@ export default function CollectionsPage() {
   const filteredProducts = useMemo(() => {
     const matched = products.filter((product) => {
       const matchesSearch = product.name.toLowerCase().includes(search.toLowerCase());
-      const matchesCategory =
-        activeCategory === "All" ||
-        product.category === activeCategory ||
-        product.collection === activeCategory;
+      const matchesCategory = activeCategory === "New"
+        ? product.isNew
+        : activeCategory === "All" ||
+          product.category === activeCategory ||
+          product.collection === activeCategory;
       return matchesSearch && matchesCategory;
     });
 
