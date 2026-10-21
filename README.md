@@ -56,19 +56,6 @@ The frontend calls:
 - `POST /api/create-order`
 - `POST /api/verify-payment`
 
-## Instagram Gram setup
-
-Set these server environment variables:
-
-- `INSTAGRAM_ACCESS_TOKEN` (Instagram Graph API user token)
-- `INSTAGRAM_FEED_LIMIT` (optional, default `6`)
-
-The frontend calls:
-
-- `GET /api/instagram-feed`
-
-If token is missing or API fails, the Gram section automatically shows fallback local images.
-
 ## Admin orders view
 
 To open admin order dashboard, set:

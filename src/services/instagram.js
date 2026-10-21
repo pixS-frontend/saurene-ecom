@@ -1,36 +1,27 @@
-const defaultPosts = [
-  {
-    id: "1",
-    image: "/home_img_4.jpg",
-    caption: "Grace in every thread."
-  },
-  {
-    id: "2",
-    image: "/home_img_5.jpeg",
-    caption: "Soft silhouettes for bold moods."
-  },
-  {
-    id: "3",
-    image: "/home_img_6.jpeg",
-    caption: "Vintage soul, modern spirit."
-  }
-];
+const staticPosts = [
+  "DeeUnlIE3aq",
+  "DeTNxbmiVpr",
+  "Dd_VUGvCQ4k",
+  "Ddq_K94ieLt"
+].map((id, recencyRank) => ({
+  id,
+  image: `/gram/${id}.jpg`,
+  permalink: `https://www.instagram.com/p/${id}/`,
+  alt: [
+    "Model in a red vintage-inspired dress beside an ornate mirror",
+    "A childhood dress-up photo paired with a model in a yellow Saurene dress",
+    "Model in a yellow dress seated beside a vintage telephone",
+    "Model in a pale blue dress with a red bow seated on a vintage sofa"
+  ][recencyRank],
+  recencyRank
+}));
 
 export async function getInstagramPosts() {
-  try {
-    const response = await fetch("/api/instagram-feed");
-    if (!response.ok) {
-      return defaultPosts;
-    }
-
-    const payload = await response.json();
-    const posts = payload?.posts || [];
-    if (!posts.length) {
-      return defaultPosts;
-    }
-
-    return posts;
-  } catch {
-    return defaultPosts;
-  }
+  return [...staticPosts]
+    .map((post) => ({
+      ...post,
+      randomKey: -Math.log(Math.random() || Number.EPSILON) / Math.exp(-0.4 * post.recencyRank)
+    }))
+    .sort((a, b) => a.randomKey - b.randomKey)
+    .map(({ randomKey, recencyRank, ...post }) => post);
 }

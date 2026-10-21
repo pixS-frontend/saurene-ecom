@@ -6,12 +6,14 @@ import { getInstagramPosts } from "../services/instagram";
 
 const homeImages = [
   "/homepage_image_1.png",
-  "/homepage_image.png"
+  "/homepage_image.png",
+  "/homepage_image_2.png"
 ];
 
 const mobileHomeImages = [
   "/mob_hm_1.png",
-  "/mob_hm_2.png"
+  "/mob_hm_2.png",
+  "/mobile_hm_3.png"
 ];
 
 export default function HomePage() {
@@ -40,9 +42,9 @@ export default function HomePage() {
 
   return (
     <div>
-      <section className="home-hero">
+      <section className={`home-hero home-hero-active-${heroIndex}`}>
         {homeImages.map((image, index) => (
-          <picture key={image}>
+          <picture key={image} className={`home-hero-slide home-hero-image-${index}`}>
             <source media="(max-width: 900px), (max-width: 1180px) and (orientation: portrait)" srcSet={mobileHomeImages[index]} />
             <img
               src={image}
@@ -124,12 +126,12 @@ export default function HomePage() {
             Follow on Instagram
           </a>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
           {isInstaLoading
             ? Array.from({ length: 3 }).map((_, index) => (
                 <div
                   key={`insta-skeleton-${index}`}
-                  className="overflow-hidden rounded-2xl border border-brand-sand/50 bg-white"
+                  className="min-w-[82%] snap-start overflow-hidden rounded-2xl border border-brand-sand/50 bg-white sm:min-w-[48%] lg:min-w-[calc((100%-2rem)/3)]"
                 >
                   <div className="skeleton-shimmer h-80 w-full" />
                   <div className="space-y-2 p-4">
@@ -138,18 +140,27 @@ export default function HomePage() {
                   </div>
                 </div>
               ))
-            : instaPosts.map((post, index) => (
-                <a
+            : instaPosts.slice(0, 3).map((post, index) => (
+                <div
                   key={post.id}
-                  href={post.permalink || "https://www.instagram.com/saurene.official"}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="overflow-hidden rounded-2xl border border-brand-sand/50 bg-white"
+                  className="min-w-[82%] snap-start overflow-hidden rounded-2xl border border-brand-sand/50 bg-white sm:min-w-[48%] lg:min-w-[calc((100%-2rem)/3)]"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <img loading="lazy" decoding="async" src={post.image} alt={post.caption} className="h-80 w-full object-cover" />
-                  <p className="line-clamp-2 p-4 text-sm text-brand-charcoal/75">{post.caption}</p>
-                </a>
+                  <a
+                    href={post.permalink}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`View Instagram post ${index + 1} from @saurene.official`}
+                    className="group block aspect-[4/5] overflow-hidden"
+                  >
+                    <img
+                      src={post.image}
+                      alt={post.alt}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </a>
+                </div>
               ))}
         </div>
       </section>
