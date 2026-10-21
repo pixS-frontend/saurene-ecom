@@ -80,7 +80,7 @@ export default function HomePage() {
                 to="/collections"
                 className="btn-like rounded-md border border-brand-ivory/75 px-5 py-2.5 text-xs font-semibold text-brand-ivory sm:px-6 sm:py-3 sm:text-sm"
               >
-                Explore the Collection
+                Explore the Collection - SS26'
               </Link>
               <Link
                 to="/collections?category=Birthday%20edits"
@@ -89,10 +89,10 @@ export default function HomePage() {
                 Birthday Edit
               </Link>
               <Link
-                to="/collections?category=New"
+                to="/collections?category=New%20AW26'"
                 className="btn-like rounded-md border border-brand-ivory/75 px-5 py-2.5 text-xs font-semibold text-brand-ivory sm:px-6 sm:py-3 sm:text-sm"
               >
-                New Collection
+                New Collection - AW26'
               </Link>
             </div>
           </div>
