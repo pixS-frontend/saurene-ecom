@@ -889,4 +889,4 @@ const catalogProducts = catalogProductsRaw.map((product) =>
 
 export const products = [...birthdayProducts, ...catalogProducts];
 
-export const categories = ["All", "New", "Birthday edits", "Dresses", "Tops", "Bottoms", "Curated Sets"];
+export const categories = ["All", "New AW26'", "Birthday edits", "Dresses", "Tops", "Bottoms", "Curated Sets"];

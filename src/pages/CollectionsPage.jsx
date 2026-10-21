@@ -46,7 +46,7 @@ export default function CollectionsPage() {
   const filteredProducts = useMemo(() => {
     const matched = products.filter((product) => {
       const matchesSearch = product.name.toLowerCase().includes(search.toLowerCase());
-      const matchesCategory = activeCategory === "New"
+      const matchesCategory = activeCategory === "New AW26'"
         ? product.isNew
         : activeCategory === "All" ||
           product.category === activeCategory ||
