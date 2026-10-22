@@ -246,12 +246,17 @@ export default function ProductDetailsPage() {
 
           <div className="mt-5 flex items-center gap-3">
             <span className="text-2xl font-semibold text-brand-wine sm:text-3xl">{formatPrice(discounted)}</span>
-            {product.discountPercent > 0 && (
+            {(product.discountPercent > 0 || product.originalPrice > product.price) && (
               <span className="text-lg text-brand-charcoal/50 line-through sm:text-xl">
-                {formatPrice(product.price)}
+                {formatPrice(product.originalPrice || product.price)}
               </span>
             )}
           </div>
+          {product.isNew && (
+            <span className="mt-3 inline-flex rounded-md bg-black px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">
+              AW26'
+            </span>
+          )}
 
           <div className="mt-8">
             <div className="flex items-center justify-between gap-3">

@@ -14,12 +14,16 @@ export default function ProductCard({ product, compactMobile = false }) {
     ...colorLabels,
     ...(product.extraOptions?.sleeve ? ["Sleeve / No Sleeve"] : [])
   ];
-  const badgesToRender = compactMobile ? optionBadges.slice(0, 2) : optionBadges;
+  const badgesToRender = [
+    ...(compactMobile ? optionBadges.slice(0, 2) : optionBadges),
+    ...(product.isNew ? ["AW26'"] : [])
+  ];
+  const hasBadges = hasExtraOptions || product.isNew;
 
   return (
     <article className="group overflow-hidden rounded-2xl border border-brand-sand/35 bg-white/40 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-xl">
       <Link to={`/product/${product.slug}`} className="relative block overflow-hidden">
-        {hasExtraOptions ? (
+        {hasBadges ? (
           <div
             className={`absolute z-10 flex flex-wrap ${
               compactMobile ? "left-2 top-2 max-w-[72%] gap-1" : "left-3 top-3 max-w-[85%] gap-1.5"
@@ -28,7 +32,11 @@ export default function ProductCard({ product, compactMobile = false }) {
             {badgesToRender.map((badge) => (
               <span
                 key={badge}
-                className={`option-chip rounded-md border border-brand-wine/35 bg-[#f7efe8]/95 font-semibold uppercase text-brand-wine shadow-sm backdrop-blur-sm ${
+                className={`option-chip rounded-md border font-semibold uppercase shadow-sm backdrop-blur-sm ${
+                  badge === "AW26'"
+                    ? "border-black bg-black text-white"
+                    : "border-brand-wine/35 bg-[#f7efe8]/95 text-brand-wine"
+                } ${
                   compactMobile
                     ? "px-1.5 py-0.5 text-[8px] tracking-[0.08em]"
                     : "px-2.5 py-1 text-[10px] tracking-[0.12em]"
@@ -70,14 +78,16 @@ export default function ProductCard({ product, compactMobile = false }) {
         </h3>
         <div className="mt-3 flex items-center gap-2">
           <span className="text-lg font-semibold text-brand-wine">{formatPrice(discounted)}</span>
-          {product.discountPercent > 0 && (
+          {(product.discountPercent > 0 || product.originalPrice > product.price) && (
             <>
               <span className="text-sm text-brand-charcoal/50 line-through">
-                {formatPrice(product.price)}
+                {formatPrice(product.originalPrice || product.price)}
               </span>
-              <span className="text-xs font-bold text-emerald-700">
-                {product.discountPercent}% OFF
-              </span>
+              {product.discountPercent > 0 && (
+                <span className="text-xs font-bold text-emerald-700">
+                  {product.discountPercent}% OFF
+                </span>
+              )}
             </>
           )}
         </div>
